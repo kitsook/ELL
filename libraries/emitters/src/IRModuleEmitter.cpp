@@ -906,7 +906,7 @@ namespace emitters
     {
         llvm::MemoryBufferRef buffer(text, "<string>"); // See Parser.cpp in LLVM code base for why...
         llvm::SMDiagnostic errorHandler;
-        bool hadError = llvm::parseAssemblyInto(buffer, *GetLLVMModule(), errorHandler);
+        bool hadError = llvm::parseAssemblyInto(buffer, GetLLVMModule(), nullptr, errorHandler);
         if (hadError)
         {
             std::string message = errorHandler.getMessage(); //IRLoader::ErrorToString(errorHandler);

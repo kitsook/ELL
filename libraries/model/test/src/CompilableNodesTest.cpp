@@ -1269,10 +1269,10 @@ void TestShapeFunctionGeneration()
     std::string result = buffer.str();
     std::cout << result << std::endl;
     // some minimal strings for testing, full verbose string comparison might be too fragile to future code gen changes.
-    auto inputFuncPos = result.find("define void @ELL_GetInputShape(i32 %index, %TensorShape* %shape");
-    auto inputFuncPos2 = result.find("define void @ELL_GetInputShape(i32 %index, %TensorShape* nocapture %shape");
-    auto outputFuncPos = result.find("define void @ELL_GetOutputShape(i32 %index, %TensorShape* %shape");
-    auto outputFuncPos2 = result.find("define void @ELL_GetOutputShape(i32 %index, %TensorShape* nocapture %shape");
+    auto inputFuncPos = result.find("void @ELL_GetInputShape(i32 %index, %TensorShape* %shape");
+    auto inputFuncPos2 = result.find("void @ELL_GetInputShape(i32 %index, %TensorShape* nocapture %shape");
+    auto outputFuncPos = result.find("void @ELL_GetOutputShape(i32 %index, %TensorShape* %shape");
+    auto outputFuncPos2 = result.find("void @ELL_GetOutputShape(i32 %index, %TensorShape* nocapture %shape");
     auto storePos = result.find("store i32 224, i32* %rows, align 4");
 
     auto hasInputFunc = inputFuncPos != npos || inputFuncPos2 != npos;
